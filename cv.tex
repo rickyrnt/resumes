@@ -1,0 +1,408 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% \input{glyphtounicode}
+\usepackage{fontspec}
+% \setmainfont{BAHNSCHRIFT}[
+%   Extension =.TTF,
+%   BoldFeatures={Style=Bold},
+%   ...
+% ]
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      {\small#3} & {\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeResearchSubheading}[5]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      {#3} & {#4} \\
+      \small #5 & \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeResearchSubSubheading}[3]{
+  \vspace{0pt} % Small spacing between positions
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textit{\small#1} & \small#2 \\
+    \small Advisor: #3 & \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeCompanyHeader}[3]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \\
+    \end{tabular*}\vspace{-1pt}
+}
+
+% Main organization header for multiple roles
+\newcommand{\resumeLeadershipHeader}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+% Clean sub-heading for each distinct position
+\newcommand{\resumeLeadershipSubheading}[2]{
+  \vspace{3pt}
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textit{\small #1} & \small #2 \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeMultiRoleHeader}[6]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small #3} & \small #4 \\
+      \textit{\small #5} & \small #6 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+% Membership formatting with right-aligned dates
+\newcommand{\resumeMembership}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & \small #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Publication formatting with bold title and highlight option
+\newcommand{\resumePublication}[2]{
+  \item \small #1, \textit{#2}\vspace{-4pt}
+}
+
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\LARGE \scshape Eric R. Yarnot} \\ \vspace{5pt}
+    \small Snohomish, WA $|$ (360)399-8390 $|$ \href{mailto:rick.yarnot.255@gmail.com}{rick.yarnot.255@gmail.com} $|$ 
+    \href{https://linkedin.com/in/eric-yarnot/}{linkedin.com/in/eric-yarnot} $|$ \href{https://github.com/rickyrnt/}{github.com/rickyrnt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Case Western Reserve University}{Cleveland, OH}
+      {Computer Engineering B.S., Secondary Physics B.A.}{Expected December 2026}
+      \vspace{2pt} \\
+      \small{Minor in Music and Computer Science}\hfill GPA 3.977/4.0
+      \vspace{2pt} \\
+      \small{\textit{\underline{Relevant Coursework:} 
+        Linear Algebra, 
+        Advanced Laboratory Physics, 
+        Computational Methods in Physics, 
+        Electricity and Magnetism, 
+        Instrument Signal Analysis, 
+        %%CONDENSED-%%
+        Quantum Mechanics, 
+        Physics of Condensed Matter, 
+        Quantum Computing, Information, and Devices, 
+        Thermodynamics and Statistical Mechanics,
+        %%-CONDENSED%%
+        %%COSMOLOGY-%%
+        General Relativity, 
+        Stars and Planets, 
+        Cosmology, 
+        %%-COSMOLOGY%%
+        Particle Physics 
+        }
+      }
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Research Experience}
+  \resumeSubHeadingListStart
+    \resumeResearchSubheading
+      {Case Western Reserve University}{Jan. 2024 -- Jun. 2024}
+      {Undergraduate Research}{Cleveland, OH}
+      {Advisor: Dr. Shuai Xu}
+      \resumeItemListStart
+        \resumeItem{Tested methods of optimizing the convergence of a VQE algorithm}
+        \resumeItem{Determined effectiveness of each method using simulations in Python/Qiskit}
+        \resumeItem{Findings presented at QCCC-24}
+      \resumeItemListEnd
+    \resumeResearchSubheading
+      {Universidad Pontificia Comillas}{Summer 2024}
+      {Study Abroad}{Madrid, Spain}
+      {Advisor: Dr. Miguel Ángel Sanz Bobi}
+      \resumeItemListStart
+        \resumeItem{Trained convolutional neural network to predict failure modes from hydraulic pump data}
+      \resumeItemListEnd
+    \resumeResearchSubheading
+      {Case Western Reserve University}{Aug. 2025 -- Present}
+      {Undergraduate Research}{Cleveland, OH}
+      {Advisors: Dr. Glenn Starkman, Dr. Craig Copi}
+      \resumeItemListStart
+        \resumeItem{Perform and verify Fourier analysis on CMB modes given different universe geometries}
+        \resumeItem{Find numerical correlation between geometries using Python}
+      \resumeItemListEnd
+    \resumeResearchSubheading
+      {Case Western Reserve University}{Aug. 2026 -- Present}
+      {Engineering Senior Project}{Cleveland, OH}
+      {Advisors: Dr. David Kazdan, Kaya Jones}
+      \resumeItemListStart
+        \resumeItem{Design and test effectiveness of costas array alphabets for radio communication}
+        \resumeItem{Design audio simulation in Python to quantitatively test alphabets}
+        \resumeItem{Collaborate with Case Amateur Radio Club to test alphabet with radio equipment}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Tektronix}{Jan. 2025 -- Aug. 2025}
+      {Software Verification Engineer}{Cleveland, OH}
+      \resumeItemListStart
+        \resumeItem{Created and ran software/first cases in Python and Lua for measurement instruments}
+        \resumeItem{Devise test plans for new firmware features of devices still in production}
+        \resumeItem{Diagnose and communicate firmware defects using Jira}
+      \resumeItemListEnd
+    \resumeSubheading
+      {[u]tech Case Western Reserve University}{Sep. 2024 -- Dec. 2024}
+      {Deskside Service Technician}{Cleveland, OH}
+      \resumeItemListStart
+        \resumeItem{Diagnosed and resolved software and hardware issues on up to 10 computers a day}
+        \resumeItem{Managed intake and return of computers which needed in-shop repairs using TeamDynamix ticketing}
+        \resumeItem{Communicated with customers concerning nature of repair and repair progress}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Case Western Reserve University}{Jan. 2024 -- Jun. 2024}
+      {Teaching Assistant for Operating Systems Course}{Cleveland, OH}
+      \resumeItemListStart
+        \resumeItem{Provided guidance to students on course material during office hours}
+        \resumeItem{Evaluated and graded all assignments in a timely manner}
+        \resumeItem{Taught subjects including memory management, program scheduling, C programming, and thread safety}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%----------PUBLICATIONS--------------
+\section{Publications}
+  \begin{enumerate}[leftmargin=0.15in, label={[\arabic*]}]
+    
+    % --- FIRST AUTHOR PAPER ---
+    \resumePublication
+      {Adam Hutchings, \textbf{Eric Yarnot}, et al. "Approaches to Simultaneously Solving Variational Quantum Eigensolver Problems"}
+       {\href{https://arxiv.org/abs/2410.21413}{arXiv:2410.21413 [quant-ph]}}
+      
+    % --- MIDDLE AUTHOR PAPERS ---
+
+  \end{enumerate}
+
+
+%--------------LEADERSHIP-------------
+\section{Leadership/Service}
+\resumeSubHeadingListStart
+
+  % --- ORGANIZATION 1: MULTIPLE ROLES ---
+  \resumeMultiRoleHeader
+    {Beta Nu of Theta Chi}{Cleveland, OH}
+    {Vice President of Health and Safety}{Jan. 2026 -- Dec. 2026}
+    {Librarian} {Apr. 2023 -- Apr. 2025}
+    \resumeItemListStart
+      \resumeItem{Organized health and safety education events}
+      \resumeItem{Led sleep health initiatives to promote better sleep practices within the chapter, including a quiet hours initiative}
+      \resumeItem{Presided as third member of the Executive Council, providing input on legislation and acting as chapter leadership}
+      \resumeItem{Maintained fraternity medkit}
+    \resumeItemListEnd
+
+  \resumeLeadershipHeader{Case Glee Club}{Cleveland, OH}
+
+    \resumeLeadershipSubheading{Treasurer}{Jan. 2023 -- Mar. 2024}
+    \resumeItemListStart
+      \resumeItem{Managed club funding requests and spending}
+    \resumeItemListEnd
+
+  \resumeLeadershipHeader{CWRUbotix}{Cleveland, OH}
+
+    \resumeLeadershipSubheading{Software and Hardware team member}{Sep. 2022 -- Jul. 2025}
+    \resumeItemListStart
+      \resumeItem{Programmed in Python and C++ for submarine robot logic and control}
+      \resumeItem{Designed and built custom circuits for autonomous float robot}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%--------------PROJECTS-------------
+%%PROJECTS-%%
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Thetachibrary Reorganization} $|$ Beta Nu of Theta Chi}{Spring 2023 -- Fall 2026}
+      \resumeItemListStart
+        \resumeItem{Led brothers in cataloguing and reshelving library of over 1,200 books}
+        \resumeItem{Set up Evergreen ILS online portal on Ubuntu server so brothers could easily browse the library}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{dog game 2017} $|$ Personal game development project}{Fall 2024 -- Fall 2026}
+      \resumeItemListStart
+        \resumeItem{Short point-and-click puzzle game developed in Godot}
+        \resumeItem{Playable at \href{https://suddenvacuum.itch.io/dog-game-2017}{suddenvacuum.itch.io/dog-game-2017}}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Music visualizer} $|$ Personal project}{Fall 2022}
+      \resumeItemListStart
+        \resumeItem{Visualizer written in OpenFrameworks with C++}
+        \resumeItem{Watchable at \href{https://www.youtube.com/watch?v=Lm6FAdxGNP4}{youtu.be/Lm6FAdxGNP4}}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+%%-PROJECTS%%
+
+%-----------HONORS AND AWARDS-----------
+\section{Honors and Awards}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{James C. Wyant Award} $|$ \emph{Academic Award, CWRU}}{Awarded Spring 2026}
+      \resumeItemListStart
+        \resumeItem{Awarded for research accomplishments outside the senior project.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Dean's High Honors} $|$ \emph{Case Western Reserve University}}{Fall 2022 -- Spring 2026}
+      \resumeItemListStart
+        \resumeItem{Awarded to students with a grade point average of 3.750 or higher.}
+      \resumeItemListEnd
+    \resumeProjectHeading
+      {\textbf{Pilchuck District Eagle Scout of the Year} $|$ \emph{Scouts BSA}}{Awarded Spring 2021}
+      \resumeItemListStart
+        \resumeItem{Awarded for work on Eagle project with Adventure Soccer.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%--------------MEMBERSHIPS-------------
+\section{Membership}
+  \resumeSubHeadingListStart
+    \resumeMembership
+      {Society of Physics Students, CWRU \& National}{2024 -- Present}
+    \resumeMembership
+      {Tau Beta Pi Engineering Honors Society, Ohio Alpha (CWRU)}{2024 -- Present}
+    \resumeMembership
+      {Beta Nu of Theta Chi (CWRU)}{2023 -- Present}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills/Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=2pt, parsep=0pt]
+    \small{
+     \item \textbf{Programming Languages: }{proficient with Python, Java, Lua, C, C++, C\#, Bash, LaTeX, Git, Nix}
+     \item \textbf{Operating Systems: }{proficient with Windows, NixOS, Ubuntu, Arch Linux, Linux Mint}
+     \item \textbf{Laboratory: }{coursework included oscilloscopes, photomultiplier tubes, lock-in amplifiers, lasers/optics equipment, circuit design}
+     \item \textbf{Computational: }{experience with high-performance computing, GPU acceleration, neural networks for data analysis} % is this redundant to the certificate?
+     \item \textbf{Communication: }{scientific communication, technical writing}
+     \item \textbf{Certifications: }{NVIDIA DLI Certificate -- Fundamentals of Accelerated Computing with CUDA C/C++}
+    }
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
