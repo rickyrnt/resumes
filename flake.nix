@@ -38,7 +38,7 @@
       in {
         packages = rec {
           physics = maketex "resume" ["ENGINEERING"];
-          physcv = maketex "cv" [];
+          physcv = maketex "cv" ["PROJECTS"];
           default = physcv;
         };
       }
